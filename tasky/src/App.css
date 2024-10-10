@@ -1,6 +1,7 @@
 .title {
   font-weight: bold;
   font-size: 1.2em; 
+  color: white;
 }
 h1 {
   text-align: center;
@@ -19,7 +20,7 @@ h1 {
   display: inline-block;
   vertical-align: top;
   font-family: system-ui;
-  background: #5bb4c4;
+  background: #61a3af;
   color: white;
   text-align: center;
   width: 180px;
@@ -47,6 +48,12 @@ button {
   bottom: 5px;
   left: 5px;
   color: green;
+}
+.deleteButton {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: red;
 }
 div {
   padding: 20px;
