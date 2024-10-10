@@ -9,14 +9,15 @@ function App() {
   const [ formState, setFormState ] = useState({
     title: "",
     description: "",
-    deadline: ""
+    deadline: "",
+    priority: 'low'
   });
   //Task state to manage form list
   const [ taskState, setTaskState ] = useState({
     tasks: [
-      { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today", done: false },
-      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", done: false },
-      { id: 3, title: "Tidy up", deadline: "Today", done: false}
+      { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today", done: false, priority: 'Low' },
+      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", done: false, priority: 'Medium' },
+      { id: 3, title: "Tidy up", description: "Iron clothes and put away", deadline: "Today", done: false, priority: 'High' }
     ]
   });
   //Function to handle marking tasks as done
@@ -32,11 +33,12 @@ function App() {
     tasks.splice(taskIndex, 1);
     setTaskState({tasks});
   }
+  //Handle form Submission 
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
     const tasks = [...taskState.tasks];
-    const form = {...formState};
+    const form = {...formState, id: uuidv4()};
 
     form.id = uuidv4();
     
@@ -56,6 +58,9 @@ function App() {
       case "deadline":
           form.deadline = event.target.value;
           break;
+      case "priority":
+          form.priority = event.target.value;
+          break;    
       default:
           form = formState;
     }
@@ -72,11 +77,12 @@ function App() {
           deadline={task.deadline}
           key={task.id}
           done={task.done}
+          priority={task.priority}
           markDone={() => doneHandler(index)}
           deleteTask = {() => deleteHandler(index)}
         />
       ))}
-      /<AddTaskForm submit={formSubmitHandler} change={formChangeHandler} AddTaskForm change={formChangeHandler} />
+      /<AddTaskForm submit={formSubmitHandler} change={formChangeHandler} AddTaskForm changer={formChangeHandler} />
     </div>
   );
 }

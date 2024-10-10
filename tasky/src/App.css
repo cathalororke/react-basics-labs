@@ -29,9 +29,21 @@ h1 {
   padding: 10px;
   position: relative;
 }
-.description{
-  color: black;
-  background: #ddf00c;
+.priority{
+  color: rgb(157, 150, 150);
+  background: #f6f5f6;
+}
+.lowpriority{
+  color: rgb(157, 150, 150);
+  background: hsl(60, 98%, 49%);
+}
+.mediumpriority{
+  color: rgb(157, 150, 150);
+  background: #3cab3e;
+}
+.highpriority{
+  color: rgb(157, 150, 150);
+  background: #f0990c;
 }
 button {
   border: none;
@@ -42,7 +54,6 @@ button {
   width: 50px;
   height: 25px;
 }
-
 .doneButton {
   position: absolute;
   bottom: 5px;
@@ -54,6 +65,24 @@ button {
   bottom: 5px;
   right: 5px;
   color: red;
+}
+.lowpriority {
+  background-color: #5e14bf;
+  border-left: 5px solid #111ad1;
+}
+.mediumpririty{
+  background-color: #103fe9;
+  border-left: 5px solid #c8b11f;
+}
+.highpriority{
+  background-color: #df680c;
+  border-left: 5px solid #e94b07;
+}
+.taskcontainer{
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 input[type=text], input[type=date] {
   width: 100%;
